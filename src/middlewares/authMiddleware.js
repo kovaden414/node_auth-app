@@ -10,9 +10,9 @@ export const authMiddleware = (req, res, next) => {
     return;
   }
 
-  const useData = jwtService.verify(token);
+  const userData = jwtService.verify(token);
 
-  if (!useData) {
+  if (!userData) {
     res.sendStatus(401);
 
     return;

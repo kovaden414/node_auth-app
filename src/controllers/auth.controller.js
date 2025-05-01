@@ -106,7 +106,7 @@ const generateToken = async (res, user) => {
 
   res.cookie('refreshToken', refreshAccessToken, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    HttpOnly: true,
+    httpOnly: true,
   });
 
   res.send({ user: normalizedUser, accessToken });

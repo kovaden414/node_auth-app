@@ -5,11 +5,11 @@ async function save(userId, newToken) {
 
   if (!token) {
     await Token.create({ userId, refreshToken: newToken });
+  } else {
+    token.refreshToken = newToken;
+
+    await token.save();
   }
-
-  token.refreshToken = newToken;
-
-  await token.save();
 }
 
 function getByToken(refreshToken) {
